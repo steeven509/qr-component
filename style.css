@@ -10,26 +10,77 @@
     /* Typography  */
     --body-font:'Outfit', sans-serif;
 
-    --font-s-default: 15px;
+    --font-s-default: 0.9rem;
     /* Font Weight  */
     --font-w-400: 400;
     --font-w-700: 700;
 
 }
-*{
-  margin: 0;
-  padding: 0;
+/* Box sizing rules */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
-img {
-    max-width: 100%;
-    height: auto;
+
+/* Remove default margin */
+body,h1,h2,h3,h4,p,figure,
+blockquote,dl,dd {
+  margin: 0;
 }
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,button,
+textarea,select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+
 body {
+    min-height: 100vh;
     background-color: var(--clr-light-gray);
     font-family: var(--body-font);
     font-size: var(--font-s-default);
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,7 +88,6 @@ body {
 }
 .qr-container {
     max-width: 20rem;
-    height: auto;
     padding: 1.2rem;
     background-color: var(--clr-white);
     border-radius: 15px;
@@ -46,15 +96,14 @@ body {
     /* for another broswer  */
     -webkit-box-shadow: -1px 7px 14px -10px rgba(0,0,0,0.28);
     -moz-box-shadow: -1px 7px 14px -10px rgba(0,0,0,0.28);
-    overflow: hidden;
 }
-.qr-container .qr-block-img img {
+.qr-container img {
     display: block;
     border-radius: 10px;
     margin-bottom: 1.5rem;
 }
 .qr-container h1 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     line-height: 1.3;
     color: var(--clr-dark-blue);
     font-weight: var(--font-w-700);
@@ -64,8 +113,8 @@ body {
     font-size: var(--font-s-default);
     font-weight: var(--font-w-400);
     line-height: 1.3;
+    font-size: var(--body-font);
     color: var(--clr-grayish-blue);
-    margin: 0 .75rem;
     margin-bottom: 1rem;
 }
 
@@ -77,5 +126,6 @@ footer {
     text-align: center; 
 }
 .attribution a {
-     color: hsl(228, 45%, 44%); 
+  color: hsl(228, 45%, 44%); 
 }
+     
